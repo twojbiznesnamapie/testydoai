@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polityka Prywatności - Twój Biznes Na Mapie</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --accent: #FF7A00;
+            --textDark: #1E1E1E;
+            --textGray: #666666;
+            --bgSoft: #FFF8F2;
+            --white: #FFFFFF;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: var(--textDark);
+            background: var(--bgSoft);
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+            background: var(--white);
+            min-height: 100vh;
+        }
+        
+        h1 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+        }
+        
+        h2 {
+            color: var(--textDark);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 0.5rem;
+        }
+        
+        h3 {
+            color: var(--textDark);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-size: 1.2rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            color: var(--textGray);
+        }
+        
+        ul, ol {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            color: var(--textGray);
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-box {
+            background: var(--bgSoft);
+            border-left: 4px solid var(--accent);
+            padding: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .update-date {
+            text-align: right;
+            color: var(--textGray);
+            font-size: 0.9rem;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border: 1px solid #e0e0e0;
+        }
+        
+        th {
+            background: var(--bgSoft);
+            font-weight: 600;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        strong {
+            color: var(--textDark);
+            font-weight: 600;
+        }
+        
+        @media print {
+            .back-link {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="back-link">← Powrót do strony głównej</a>
+        
+        <h1>Polityka Prywatności</h1>
+        
+        <div class="info-box">
+            <strong>Data wejścia w życie:</strong> 16 sierpnia 2025<br>
+            <strong>Ostatnia aktualizacja:</strong> 16 sierpnia 2025
+        </div>
+        
+        <h2>§ 1. Administrator Danych Osobowych</h2>
+        <p>
+            Administratorem Twoich danych osobowych jest <strong>Twój Biznes Na Mapie</strong>, prowadzący działalność gospodarczą, 
+            NIP: 6463017276, REGON: 540369419 (dalej jako "Administrator", "my" lub "nasza firma").
+        </p>
+        <p>
+            <strong>Dane kontaktowe Administratora:</strong><br>
+            E-mail: kontakt.twojbiznesnamapie@gmail.com<br>
+            Telefon: +48 453 343 460<br>
+            Godziny kontaktu: Pon-Pt 10:00-16:00, Sob 10:00-14:00
+        </p>
+        
+        <h2>§ 2. Cele i Podstawy Prawne Przetwarzania Danych</h2>
+        <p>Przetwarzamy Twoje dane osobowe w następujących celach:</p>
+        
+        <h3>2.1. Realizacja umowy o świadczenie usług</h3>
+        <ul>
+            <li><strong>Cel:</strong> Wykonanie usługi zakładania i optymalizacji Profilu Firmy w Google</li>
+            <li><strong>Podstawa prawna:</strong> Art. 6 ust. 1 lit. b) RODO - wykonanie umowy</li>
+            <li><strong>Zakres danych:</strong> imię i nazwisko, nazwa firmy, adres, telefon, e-mail, NIP</li>
+            <li><strong>Okres przechowywania:</strong> Przez czas trwania umowy oraz 6 lat po jej zakończeniu (obowiązek podatkowy)</li>
+        </ul>
+        
+        <h3>2.2. Obsługa zapytań i formularza kontaktowego</h3>
+        <ul>
+            <li><strong>Cel:</strong> Odpowiedź na przesłane zapytanie, przygotowanie oferty</li>
+            <li><strong>Podstawa prawna:</strong> Art. 6 ust. 1 lit. f) RODO - prawnie uzasadniony interes</li>
+            <li><strong>Zakres danych:</strong> imię i nazwisko, e-mail, telefon, treść wiadomości</li>
+            <li><strong>Okres przechowywania:</strong> 2 lata od ostatniego kontaktu</li>
+        </ul>
+        
+        <h3>2.3. Marketing bezpośredni</h3>
+        <ul>
+            <li><strong>Cel:</strong> Wysyłka informacji handlowych, ofert promocyjnych, newslettera</li>
+            <li><strong>Podstawa prawna:</strong> Art. 6 ust. 1 lit. a) RODO - dobrowolna zgoda</li>
+            <li><strong>Zakres danych:</strong> e-mail, imię, telefon (dla SMS)</li>
+            <li><strong>Okres przechowywania:</strong> Do momentu wycofania zgody</li>
+        </ul>
+        
+        <h3>2.4. Prowadzenie księgowości</h3>
+        <ul>
+            <li><strong>Cel:</strong> Wystawienie faktury, prowadzenie dokumentacji księgowej</li>
+            <li><strong>Podstawa prawna:</strong> Art. 6 ust. 1 lit. c) RODO - obowiązek prawny</li>
+            <li><strong>Zakres danych:</strong> dane do faktury (nazwa, adres, NIP)</li>
+            <li><strong>Okres przechowywania:</strong> 5 lat od końca roku podatkowego</li>
+        </ul>
+        
+        <h3>2.5. Dochodzenie roszczeń i obrona przed roszczeniami</h3>
+        <ul>
+            <li><strong>Cel:</strong> Ewentualne dochodzenie lub obrona przed roszczeniami</li>
+            <li><strong>Podstawa prawna:</strong> Art. 6 ust. 1 lit. f) RODO - prawnie uzasadniony interes</li>
+            <li><strong>Okres przechowywania:</strong> Do czasu przedawnienia roszczeń (3 lata)</li>
+        </ul>
+        
+        <h2>§ 3. Odbiorcy Danych</h2>
+        <p>Twoje dane osobowe mogą być udostępniane następującym kategoriom odbiorców:</p>
+        <ul>
+            <li><strong>PayNow (mBank S.A.)</strong> - operator płatności online (tylko dane transakcyjne)</li>
+            <li><strong>Google LLC</strong> - w zakresie niezbędnym do założenia Profilu Firmy w Google</li>
+            <li><strong>Netlify Inc.</strong> - hosting strony internetowej i obsługa formularzy</li>
+            <li><strong>Google Analytics</strong> - analiza ruchu na stronie (dane zanonimizowane)</li>
+            <li><strong>Facebook Ireland Ltd.</strong> - remarketing (jeśli wyrazisz zgodę na cookies marketingowe)</li>
+            <li><strong>Biuro rachunkowe</strong> - prowadzenie księgowości (tylko dane do faktur)</li>
+            <li><strong>Organy państwowe</strong> - gdy wynika to z obowiązujących przepisów prawa</li>
+        </ul>
+        
+        <h2>§ 4. Przekazywanie Danych do Państw Trzecich</h2>
+        <p>
+            Niektóre z Twoich danych mogą być przekazywane do USA (Google, Netlify, Facebook) na podstawie:
+        </p>
+        <ul>
+            <li>Standardowych klauzul umownych zatwierdzonych przez Komisję Europejską</li>
+            <li>Innych odpowiednich zabezpieczeń przewidzianych w RODO</li>
+        </ul>
+        <p>
+            Masz prawo do uzyskania kopii zabezpieczeń stosowanych przy transferze danych - kontakt: kontakt.twojbiznesnamapie@gmail.com
+        </p>
+        
+        <h2>§ 5. Twoje Prawa</h2>
+        <p>W związku z przetwarzaniem danych osobowych przysługują Ci następujące prawa:</p>
+        
+        <table>
+            <tr>
+                <th>Prawo</th>
+                <th>Opis</th>
+                <th>Jak skorzystać</th>
+            </tr>
+            <tr>
+                <td><strong>Dostęp do danych</strong></td>
+                <td>Prawo uzyskania informacji czy przetwarzamy Twoje dane oraz otrzymania ich kopii</td>
+                <td>Wyślij e-mail z prośbą</td>
+            </tr>
+            <tr>
+                <td><strong>Sprostowanie</strong></td>
+                <td>Prawo poprawienia nieprawidłowych lub uzupełnienia niekompletnych danych</td>
+                <td>Wyślij e-mail ze zmianami</td>
+            </tr>
+            <tr>
+                <td><strong>Usunięcie</strong></td>
+                <td>Prawo żądania usunięcia danych ("prawo do bycia zapomnianym")</td>
+                <td>Wyślij żądanie usunięcia</td>
+            </tr>
+            <tr>
+                <td><strong>Ograniczenie</strong></td>
+                <td>Prawo żądania ograniczenia przetwarzania w określonych przypadkach</td>
+                <td>Wyślij uzasadnione żądanie</td>
+            </tr>
+            <tr>
+                <td><strong>Przenoszenie</strong></td>
+                <td>Prawo otrzymania danych w formacie umożliwiającym przeniesienie do innego administratora</td>
+                <td>Wyślij prośbę o eksport</td>
+            </tr>
+            <tr>
+                <td><strong>Sprzeciw</strong></td>
+                <td>Prawo sprzeciwu wobec przetwarzania opartego na uzasadnionym interesie</td>
+                <td>Wyślij sprzeciw z uzasadnieniem</td>
+            </tr>
+            <tr>
+                <td><strong>Wycofanie zgody</strong></td>
+                <td>Prawo wycofania zgody w dowolnym momencie (nie wpływa na legalność wcześniejszego przetwarzania)</td>
+                <td>Kliknij "wypisz" w e-mailu lub wyślij prośbę</td>
+            </tr>
+        </table>
+        
+        <div class="info-box">
+            <strong>Aby skorzystać z powyższych praw:</strong><br>
+            Wyślij wiadomość na: kontakt.twojbiznesnamapie@gmail.com<br>
+            W tytule napisz: "RODO - [nazwa prawa]"<br>
+            Odpowiemy w ciągu 30 dni od otrzymania żądania.
+        </div>
+        
+        <h2>§ 6. Prawo do Skargi</h2>
+        <p>
+            Jeśli uznasz, że przetwarzanie Twoich danych narusza przepisy RODO, masz prawo wnieść skargę do organu nadzorczego:
+        </p>
+        <div class="info-box">
+            <strong>Prezes Urzędu Ochrony Danych Osobowych</strong><br>
+            ul. Stawki 2, 00-193 Warszawa<br>
+            Tel: 22 531 03 00<br>
+            E-mail: kancelaria@uodo.gov.pl<br>
+            www.uodo.gov.pl
+        </div>
+        
+        <h2>§ 7. Pliki Cookies</h2>
+        
+        <h3>7.1. Czym są pliki cookies?</h3>
+        <p>
+            Cookies to małe pliki tekstowe zapisywane na Twoim urządzeniu podczas korzystania ze strony internetowej. 
+            Służą do zapamiętywania preferencji, analizy ruchu i personalizacji treści.
+        </p>
+        
+        <h3>7.2. Jakich cookies używamy?</h3>
+        <table>
+            <tr>
+                <th>Typ cookies</th>
+                <th>Cel</th>
+                <th>Czas przechowywania</th>
+                <th>Możliwość wyłączenia</th>
+            </tr>
+            <tr>
+                <td><strong>Niezbędne</strong></td>
+                <td>Działanie strony, formularzy, bezpieczeństwo</td>
+                <td>Sesja - 12 miesięcy</td>
+                <td>Nie (strona nie będzie działać)</td>
+            </tr>
+            <tr>
+                <td><strong>Analityczne</strong></td>
+                <td>Google Analytics - statystyki odwiedzin</td>
+                <td>26 miesięcy</td>
+                <td>Tak</td>
+            </tr>
+            <tr>
+                <td><strong>Marketingowe</strong></td>
+                <td>Facebook Pixel - remarketing</td>
+                <td>90 dni</td>
+                <td>Tak</td>
+            </tr>
+            <tr>
+                <td><strong>Funkcjonalne</strong></td>
+                <td>Zapamiętanie preferencji, zgód</td>
+                <td>12 miesięcy</td>
+                <td>Tak</td>
+            </tr>
+        </table>
+        
+        <h3>7.3. Jak zarządzać cookies?</h3>
+        <p>Możesz zarządzać cookies na kilka sposobów:</p>
+        <ul>
+            <li><strong>Panel cookies na stronie:</strong> Kliknij "Ustawienia cookies" w stopce strony</li>
+            <li><strong>Ustawienia przeglądarki:</strong> Każda przeglądarka pozwala blokować lub usuwać cookies</li>
+            <li><strong>Google Analytics Opt-out:</strong> Zainstaluj wtyczkę blokującą GA</li>
+            <li><strong>Facebook:</strong> Zarządzaj preferencjami reklam w ustawieniach Facebook</li>
+        </ul>
+        
+        <div class="info-box">
+            <strong>Uwaga:</strong> Wyłączenie niektórych cookies może wpłynąć na funkcjonalność strony. 
+            Cookies niezbędne są wymagane do prawidłowego działania formularzy i płatności.
+        </div>
+        
+        <h2>§ 8. Bezpieczeństwo Danych</h2>
+        <p>Stosujemy następujące środki bezpieczeństwa:</p>
+        <ul>
+            <li><strong>Szyfrowanie SSL/TLS:</strong> Cała komunikacja ze stroną jest szyfrowana</li>
+            <li><strong>Bezpieczne hasła:</strong> Wymogi dotyczące siły haseł dostępowych</li>
+            <li><strong>Ograniczony dostęp:</strong> Tylko upoważnione osoby mają dostęp do danych</li>
+            <li><strong>Regularne aktualizacje:</strong> Systemy i oprogramowanie są regularnie aktualizowane</li>
+            <li><strong>Kopie zapasowe:</strong> Regularne backupy danych</li>
+            <li><strong>Procedury:</strong> Wewnętrzne procedury ochrony danych</li>
+        </ul>
+        
+        <h2>§ 9. Obowiązek Podania Danych</h2>
+        <p>
+            Podanie danych jest:
+        </p>
+        <ul>
+            <li><strong>Dobrowolne</strong> - ale niezbędne do realizacji usługi</li>
+            <li><strong>Wymagane prawnie</strong> - w przypadku danych do faktury (obowiązek podatkowy)</li>
+            <li><strong>Opcjonalne</strong> - w przypadku zgody marketingowej</li>
+        </ul>
+        <p>
+            Niepodanie danych oznaczonych jako obowiązkowe uniemożliwi zawarcie umowy i realizację usługi.
+        </p>
+        
+        <h2>§ 10. Zautomatyzowane Podejmowanie Decyzji</h2>
+        <p>
+            <strong>Nie stosujemy</strong> zautomatyzowanego podejmowania decyzji, w tym profilowania, 
+            które mogłoby wywołać wobec Ciebie skutki prawne lub podobnie istotnie na Ciebie wpłynąć.
+        </p>
+        
+        <h2>§ 11. Dane Dzieci</h2>
+        <p>
+            Nasza strona i usługi <strong>nie są skierowane do osób poniżej 16 roku życia</strong>. 
+            Nie zbieramy świadomie danych osobowych od dzieci. Jeśli jesteś rodzicem lub opiekunem 
+            i wiesz, że Twoje dziecko przekazało nam dane, skontaktuj się z nami.
+        </p>
+        
+        <h2>§ 12. Zmiany Polityki Prywatności</h2>
+        <p>
+            Zastrzegamy sobie prawo do wprowadzania zmian w Polityce Prywatności. O istotnych zmianach 
+            poinformujemy:
+        </p>
+        <ul>
+            <li>Poprzez wyraźne powiadomienie na stronie</li>
+            <li>E-mailem (jeśli mamy Twój adres)</li>
+            <li>Prosząc o ponowną zgodę (jeśli zmiany są znaczące)</li>
+        </ul>
+        
+        <h2>§ 13. Definicje</h2>
+        <ul>
+            <li><strong>RODO</strong> - Rozporządzenie Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. w sprawie ochrony osób fizycznych w związku z przetwarzaniem danych osobowych</li>
+            <li><strong>Dane osobowe</strong> - informacje o zidentyfikowanej lub możliwej do zidentyfikowania osobie fizycznej</li>
+            <li><strong>Przetwarzanie</strong> - operacja lub zestaw operacji wykonywanych na danych osobowych</li>
+            <li><strong>Administrator</strong> - podmiot decydujący o celach i sposobach przetwarzania danych</li>
+            <li><strong>Odbiorca</strong> - podmiot, któremu ujawnia się dane osobowe</li>
+        </ul>
+        
+        <h2>§ 14. Postanowienia Końcowe</h2>
+        <p>
+            W sprawach nieuregulowanych niniejszą Polityką Prywatności mają zastosowanie przepisy RODO 
+            oraz inne przepisy prawa polskiego i unijnego dotyczące ochrony danych osobowych.
+        </p>
+        <p>
+            Jeśli masz pytania dotyczące tej Polityki Prywatności lub sposobu przetwarzania Twoich danych, 
+            skontaktuj się z nami:
+        </p>
+        <ul>
+            <li>E-mail: kontakt.twojbiznesnamapie@gmail.com</li>
+            <li>Telefon: +48 453 343 460</li>
+            <li>W tytule wiadomości napisz: "Pytanie RODO"</li>
+        </ul>
+        
+        <div class="update-date">
+            Dokument wchodzi w życie z dniem: 16 sierpnia 2025<br>
+            Ostatnia aktualizacja: 16 sierpnia 2025<br>
+            Wersja dokumentu: 1.0
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+# Hard map thank-you to index.html (no 404, ever)
+/dziekujemy              /index.html   200
+/dziekujemy/             /index.html   200
+/dziekujemy/*            /index.html   200
+
+# Legal documents (serve their real files)
+/regulamin               /regulamin/index.html            200
+/regulamin/*             /regulamin/index.html            200
+/polityka-prywatnosci    /polityka-prywatnosci/index.html 200
+/polityka-prywatnosci/*  /polityka-prywatnosci/index.html 200
+/reklamacje              /reklamacje/index.html           200
+/reklamacje/*            /reklamacje/index.html           200
+/prawo-odstapienia       /prawo-odstapienia/index.html    200
+/prawo-odstapienia/*     /prawo-odstapienia/index.html    200
+
+# Optional: SPA fallback (keep last). Comment out if not needed.
+/*                        /index.html   200

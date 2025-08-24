@@ -1,0 +1,15 @@
+[build]
+  publish = "."
+
+# Przekierowania
+[[redirects]]
+  from = "/booking-calendar"
+  to = "/booking-calendar.html"
+  status = 200
+
+# Nagłówki bezpieczeństwa
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    Content-Security-Policy = "frame-ancestors 'self'"

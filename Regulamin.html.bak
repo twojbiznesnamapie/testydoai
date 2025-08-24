@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regulamin Świadczenia Usług - Twój Biznes Na Mapie</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --accent: #FF7A00;
+            --success: #22c55e;
+            --warning: #f59e0b;
+            --error: #ef4444;
+            --textDark: #1E1E1E;
+            --textGray: #666666;
+            --bgSoft: #FFF8F2;
+            --white: #FFFFFF;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: var(--textDark);
+            background: var(--bgSoft);
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+            background: var(--white);
+            min-height: 100vh;
+        }
+        
+        h1 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+        }
+        
+        h2 {
+            color: var(--textDark);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 0.5rem;
+        }
+        
+        h3 {
+            color: var(--textDark);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-size: 1.2rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            color: var(--textGray);
+        }
+        
+        ul, ol {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            color: var(--textGray);
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-box {
+            background: var(--bgSoft);
+            border-left: 4px solid var(--accent);
+            padding: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .warning-box {
+            background: #fef3c7;
+            border-left: 4px solid var(--warning);
+            padding: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .success-box {
+            background: #d1fae5;
+            border-left: 4px solid var(--success);
+            padding: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .update-date {
+            text-align: right;
+            color: var(--textGray);
+            font-size: 0.9rem;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border: 1px solid #e0e0e0;
+        }
+        
+        th {
+            background: var(--bgSoft);
+            font-weight: 600;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        strong {
+            color: var(--textDark);
+            font-weight: 600;
+        }
+        
+        .package-table {
+            margin: 1.5rem 0;
+            overflow-x: auto;
+        }
+        
+        .package-table table {
+            min-width: 600px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem 1rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .package-table {
+                overflow-x: scroll;
+            }
+        }
+        
+        @media print {
+            .back-link {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="back-link">← Powrót do strony głównej</a>
+        
+        <h1>Regulamin Świadczenia Usług</h1>
+        
+        <div class="info-box">
+            <strong>Data wejścia w życie:</strong> 16 sierpnia 2025<br>
+            <strong>Ostatnia aktualizacja:</strong> 16 sierpnia 2025<br>
+            <strong>Wersja:</strong> 1.0
+        </div>
+        
+        <h2>§ 1. Postanowienia Ogólne</h2>
+        
+        <ol>
+            <li>Niniejszy Regulamin określa zasady świadczenia usług drogą elektroniczną przez <strong>Twój Biznes Na Mapie</strong> (NIP: 6463017276, REGON: 540369419), zwaną dalej "Usługodawcą".</li>
+            <li>Regulamin jest udostępniony nieodpłatnie na stronie www.twojbiznesnamapie.pl w sposób umożliwiający jego pobranie, utrwalenie i wydrukowanie.</li>
+            <li>Akceptacja Regulaminu następuje poprzez zaznaczenie odpowiedniego checkboxa przy składaniu zamówienia lub wysyłaniu formularza kontaktowego.</li>
+            <li>Usługodawca świadczy usługi zgodnie z Regulaminem oraz obowiązującymi przepisami prawa polskiego.</li>
+        </ol>
+        
+        <h2>§ 2. Definicje</h2>
+        
+        <p>Użyte w Regulaminie pojęcia oznaczają:</p>
+        <ul>
+            <li><strong>Usługodawca</strong> - Twój Biznes Na Mapie, NIP: 6463017276</li>
+            <li><strong>Klient</strong> - osoba fizyczna, prawna lub jednostka organizacyjna zamawiająca Usługi</li>
+            <li><strong>Konsument</strong> - osoba fizyczna dokonująca czynności prawnej niezwiązanej z działalnością gospodarczą lub zawodową</li>
+            <li><strong>Przedsiębiorca na prawach konsumenta</strong> - osoba fizyczna zawierająca umowę bezpośrednio związaną z jej działalnością gospodarczą, gdy nie posiada ona charakteru zawodowego</li>
+            <li><strong>Usługi</strong> - usługi świadczone przez Usługodawcę, w szczególności zakładanie i optymalizacja Profilu Firmy w Google</li>
+            <li><strong>Strona</strong> - strona internetowa www.twojbiznesnamapie.pl</li>
+            <li><strong>Umowa</strong> - umowa o świadczenie Usług zawarta między Usługodawcą a Klientem</li>
+            <li><strong>Profil Firmy w Google</strong> - wizytówka firmy w Google (dawniej Google My Business)</li>
+            <li><strong>Dni robocze</strong> - dni od poniedziałku do piątku, z wyłączeniem dni ustawowo wolnych od pracy</li>
+        </ul>
+        
+        <h2>§ 3. Rodzaje i Zakres Usług</h2>
+        
+        <h3>3.1. Oferowane pakiety usług:</h3>
+        
+        <div class="package-table">
+            <table>
+                <tr>
+                    <th>Pakiet</th>
+                    <th>Cena netto</th>
+                    <th>Zakres usług</th>
+                    <th>Czas realizacji</th>
+                </tr>
+                <tr>
+                    <td><strong>Podstawowa konfiguracja</strong></td>
+                    <td>149 zł</td>
+                    <td>
+                        • Utworzenie/przejęcie profilu<br>
+                        • Dane podstawowe<br>
+                        • Zdjęcie główne i logo<br>
+                        • Weryfikacja<br>
+                        • Konfiguracja atrybutów
+                    </td>
+                    <td>3-5 dni roboczych</td>
+                </tr>
+                <tr>
+                    <td><strong>Profil + optymalizacja SEO</strong></td>
+                    <td>229 zł</td>
+                    <td>
+                        • Wszystko z pakietu podstawowego<br>
+                        • Sekcja Produkty/Usługi<br>
+                        • Pytania i odpowiedzi (Q&A)<br>
+                        • Opis z frazami kluczowymi
+                    </td>
+                    <td>5-7 dni roboczych</td>
+                </tr>
+                <tr>
+                    <td><strong>Pełne SEO + start promocji</strong></td>
+                    <td>299 zł</td>
+                    <td>
+                        • Wszystko z pakietu SEO<br>
+                        • 3 posty startowe<br>
+                        • Rozbudowana lista usług<br>
+                        • Ceny i opisy
+                    </td>
+                    <td>7-10 dni roboczych</td>
+                </tr>
+                <tr>
+                    <td><strong>Social Media Starter</strong></td>
+                    <td>49,99 zł</td>
+                    <td>
+                        • 30 tekstów do postów<br>
+                        • Kalendarz publikacji<br>
+                        • Hashtagi branżowe<br>
+                        • Format PDF
+                    </td>
+                    <td>24 godziny</td>
+                </tr>
+            </table>
+        </div>
+        
+        <h3>3.2. Zakres odpowiedzialności:</h3>
+        <ul>
+            <li>Usługodawca wykonuje usługi zgodnie z wytycznymi Google</li>
+            <li>Usługodawca nie gwarantuje konkretnej pozycji w wynikach wyszukiwania</li>
+            <li>Efekty SEO są zazwyczaj widoczne po 4-6 tygodniach</li>
+            <li>Klient zachowuje pełną kontrolę nad profilem po wykonaniu usługi</li>
+        </ul>
+        
+        <h2>§ 4. Zasady Składania Zamówień</h2>
+        
+        <ol>
+            <li><strong>Zamówienie można złożyć poprzez:</strong>
+                <ul>
+                    <li>Formularz kontaktowy na Stronie</li>
+                    <li>Kliknięcie przycisku "Zamów" przy wybranym pakiecie</li>
+                    <li>Kontakt telefoniczny: +48 453 343 460</li>
+                    <li>E-mail: kontakt.twojbiznesnamapie@gmail.com</li>
+                </ul>
+            </li>
+            <li><strong>Proces zamówienia:</strong>
+                <ol type="a">
+                    <li>Wybór pakietu usług</li>
+                    <li>Wypełnienie formularza z danymi</li>
+                    <li>Akceptacja Regulaminu i zgoda RODO</li>
+                    <li>Przekierowanie do płatności (PayNow)</li>
+                    <li>Otrzymanie potwierdzenia zamówienia na e-mail</li>
+                </ol>
+            </li>
+            <li><strong>Umowa zostaje zawarta:</strong>
+                <ul>
+                    <li>W momencie dokonania płatności online, lub</li>
+                    <li>W momencie wysłania potwierdzenia przyjęcia zamówienia przez Usługodawcę</li>
+                </ul>
+            </li>
+        </ol>
+        
+        <h2>§ 5. Ceny i Płatności</h2>
+        
+        <ol>
+            <li>Wszystkie ceny podane na Stronie są cenami netto (zwolnienie z VAT zgodnie z art. 113 ust. 1 ustawy o VAT).</li>
+            <li>Ceny są wyrażone w złotych polskich (PLN).</li>
+            <li><strong>Metody płatności:</strong>
+                <ul>
+                    <li>Płatność online przez PayNow (karty, BLIK, przelewy)</li>
+                    <li>Przelew tradycyjny (dane w potwierdzeniu zamówienia)</li>
+                </ul>
+            </li>
+            <li>Termin płatności:
+                <ul>
+                    <li>Płatność online - natychmiast przy zamówieniu</li>
+                    <li>Przelew tradycyjny - 3 dni od złożenia zamówienia</li>
+                </ul>
+            </li>
+            <li>Rozpoczęcie realizacji usługi następuje po zaksięgowaniu płatności.</li>
+            <li>Faktura wystawiana jest w ciągu 7 dni od otrzymania płatności i przesyłana na adres e-mail Klienta.</li>
+        </ol>
+        
+        <div class="warning-box">
+            <strong>⚠️ Uwaga:</strong> W przypadku braku płatności w terminie, zamówienie zostaje anulowane. 
+            Usługodawca ma prawo odmówić realizacji kolejnych zamówień do czasu uregulowania zaległości.
+        </div>
+        
+        <h2>§ 6. Realizacja Usług</h2>
+        
+        <ol>
+            <li><strong>Terminy realizacji:</strong>
+                <ul>
+                    <li>Liczą się od dnia zaksięgowania płatności</li>
+                    <li>Dotyczą dni roboczych (pon-pt)</li>
+                    <li>Mogą ulec wydłużeniu w przypadku opóźnień po stronie Google lub Klienta</li>
+                </ul>
+            </li>
+            <li><strong>Obowiązki Klienta:</strong>
+                <ul>
+                    <li>Dostarczenie kompletnych i prawdziwych danych firmy</li>
+                    <li>Udostępnienie materiałów (logo, zdjęcia) w odpowiedniej jakości</li>
+                    <li>Współpraca przy weryfikacji profilu (kod PIN, telefon)</li>
+                    <li>Odpowiedź na pytania w ciągu 2 dni roboczych</li>
+                </ul>
+            </li>
+            <li><strong>Proces realizacji:</strong>
+                <ol type="a">
+                    <li>Kontakt w ciągu 24h od płatności</li>
+                    <li>Zebranie danych przez ankietę lub telefon</li>
+                    <li>Utworzenie/optymalizacja profilu</li>
+                    <li>Weryfikacja profilu</li>
+                    <li>Przekazanie dostępów i instrukcji</li>
+                </ol>
+            </li>
+            <li>Usługa uznawana jest za wykonaną po przekazaniu Klientowi dostępów do profilu.</li>
+        </ol>
+        
+        <h2>§ 7. Prawo Odstąpienia od Umowy</h2>
+        
+        <h3>7.1. Dla Konsumentów i Przedsiębiorców na prawach konsumenta:</h3>
+        
+        <ol>
+            <li>Mają prawo odstąpić od umowy w terminie <strong>14 dni</strong> bez podania przyczyny.</li>
+            <li>Termin biegnie od dnia zawarcia umowy.</li>
+            <li>Aby skorzystać z prawa odstąpienia, należy:
+                <ul>
+                    <li>Poinformować Usługodawcę jednoznacznym oświadczeniem</li>
+                    <li>Można skorzystać ze wzoru formularza (dostępny poniżej)</li>
+                    <li>Wysłać na: kontakt.twojbiznesnamapie@gmail.com</li>
+                </ul>
+            </li>
+            <li>Zwrot płatności nastąpi niezwłocznie, nie później niż 14 dni od otrzymania oświadczenia.</li>
+        </ol>
+        
+        <div class="warning-box">
+            <strong>⚠️ WAŻNE:</strong> Prawo odstąpienia od umowy <strong>WYGASA</strong>, jeżeli Usługodawca 
+            wykonał w pełni usługę za wyraźną zgodą Konsumenta, który został poinformowany przed 
+            rozpoczęciem świadczenia, że po spełnieniu świadczenia utraci prawo odstąpienia od umowy.
+        </div>
+        
+        <h3>7.2. Wzór formularza odstąpienia:</h3>
+        
+        <div class="info-box">
+            <strong>FORMULARZ ODSTĄPIENIA OD UMOWY</strong><br><br>
+            Adresat: Twój Biznes Na Mapie<br>
+            E-mail: kontakt.twojbiznesnamapie@gmail.com<br><br>
+            
+            Ja, [imię i nazwisko], niniejszym informuję o moim odstąpieniu od umowy o świadczenie usługi [nazwa pakietu].<br>
+            Data zawarcia umowy: [data]<br>
+            Numer zamówienia: [jeśli został nadany]<br>
+            Imię i nazwisko: [dane konsumenta]<br>
+            Adres: [adres konsumenta]<br>
+            Data i podpis: [data, podpis - jeśli wysyłane papierowo]
+        </div>
+        
+        <h2>§ 8. Reklamacje</h2>
+        
+        <ol>
+            <li><strong>Podstawa reklamacji:</strong>
+                <ul>
+                    <li>Niezgodność usługi z umową</li>
+                    <li>Niewykonanie usługi w terminie</li>
+                    <li>Nienależyte wykonanie usługi</li>
+                </ul>
+            </li>
+            <li><strong>Sposób zgłoszenia reklamacji:</strong>
+                <ul>
+                    <li>E-mail: kontakt.twojbiznesnamapie@gmail.com (tytuł: "REKLAMACJA")</li>
+                    <li>List polecony na adres siedziby</li>
+                    <li>Telefonicznie z potwierdzeniem e-mail</li>
+                </ul>
+            </li>
+            <li><strong>Reklamacja powinna zawierać:</strong>
+                <ul>
+                    <li>Dane Klienta (imię, nazwisko, e-mail, telefon)</li>
+                    <li>Numer zamówienia lub datę zakupu</li>
+                    <li>Opis problemu</li>
+                    <li>Żądanie (naprawa, obniżka ceny, odstąpienie)</li>
+                    <li>Dowody (screenshoty, e-maile)</li>
+                </ul>
+            </li>
+            <li><strong>Termin rozpatrzenia:</strong> 14 dni od otrzymania reklamacji</li>
+            <li><strong>Sposób załatwienia:</strong>
+                <ul>
+                    <li>Usunięcie wad w terminie 7 dni</li>
+                    <li>Obniżenie ceny proporcjonalnie do wad</li>
+                    <li>Zwrot płatności (przy odstąpieniu)</li>
+                </ul>
+            </li>
+        </ol>
+        
+        <div class="success-box">
+            <strong>✓ Gwarancja jakości:</strong> Jeśli nie jesteś zadowolony z wykonanej usługi, 
+            w ciągu 7 dni od jej zakończenia zgłoś uwagi, a poprawimy je bezpłatnie.
+        </div>
+        
+        <h2>§ 9. Odpowiedzialność</h2>
+        
+        <ol>
+            <li>Usługodawca ponosi odpowiedzialność za należyte wykonanie usługi zgodnie z opisem pakietu.</li>
+            <li><strong>Usługodawca NIE odpowiada za:</strong>
+                <ul>
+                    <li>Pozycję profilu w wynikach wyszukiwania Google</li>
+                    <li>Liczbę klientów czy zapytań generowanych przez profil</li>
+                    <li>Zmiany w algorytmach Google</li>
+                    <li>Działania konkurencji</li>
+                    <li>Blokady lub usunięcie profilu wynikające z naruszenia regulaminu Google przez Klienta</li>
+                    <li>Szkody powstałe z powodu podania nieprawdziwych danych</li>
+                    <li>Utracone korzyści</li>
+                </ul>
+            </li>
+            <li>Odpowiedzialność Usługodawcy ograniczona jest do kwoty zapłaconej za usługę.</li>
+            <li>Usługodawca nie ponosi odpowiedzialności za przerwy w dostępności usług Google.</li>
+        </ol>
+        
+        <h2>§ 10. Własność Intelektualna</h2>
+        
+        <ol>
+            <li>Wszelkie materiały przygotowane przez Usługodawcę (opisy, posty, grafiki) stają się własnością Klienta po zapłaceniu za usługę.</li>
+            <li>Klient oświadcza, że posiada prawa do przekazanych materiałów (logo, zdjęcia).</li>
+            <li>Usługodawca ma prawo wykorzystać anonimowe dane o rezultatach usługi w celach marketingowych.</li>
+            <li>Zabronione jest kopiowanie treści ze Strony bez zgody Usługodawcy.</li>
+        </ol>
+        
+        <h2>§ 11. Ochrona Danych Osobowych</h2>
+        
+        <ol>
+            <li>Administratorem danych osobowych jest Usługodawca.</li>
+            <li>Dane przetwarzane są zgodnie z RODO i Polityką Prywatności.</li>
+            <li>Szczegóły przetwarzania danych znajdują się w <a href="/polityka-prywatnosci.html" style="color: var(--accent);">Polityce Prywatności</a>.</li>
+            <li>Klient ma prawo dostępu, sprostowania, usunięcia i ograniczenia przetwarzania danych.</li>
+            <li>Dane są zabezpieczone przed nieuprawnionym dostępem.</li>
+        </ol>
+        
+        <h2>§ 12. Siła Wyższa</h2>
+        
+        <p>
+            Usługodawca nie ponosi odpowiedzialności za niewykonanie lub nienależyte wykonanie usługi 
+            spowodowane działaniem siły wyższej, w tym:
+        </p>
+        <ul>
+            <li>Klęski żywiołowe</li>
+            <li>Wojny, zamieszki, strajki</li>
+            <li>Awarie systemów Google</li>
+            <li>Decyzje władz państwowych</li>
+            <li>Pandemie i epidemie</li>
+            <li>Cyberataki na dużą skalę</li>
+        </ul>
+        
+        <h2>§ 13. Pozasądowe Rozwiązywanie Sporów</h2>
+        
+        <h3>13.1. Dla Konsumentów:</h3>
+        <ul>
+            <li>Możliwość skorzystania z pozasądowych sposobów rozpatrywania reklamacji</li>
+            <li>Platforma ODR: <a href="https://ec.europa.eu/consumers/odr" target="_blank" style="color: var(--accent);">ec.europa.eu/consumers/odr</a></li>
+            <li>Wojewódzkie Inspektoraty Inspekcji Handlowej</li>
+            <li>Stałe polubowne sądy konsumenckie</li>
+        </ul>
+        
+        <h3>13.2. Mediacja:</h3>
+        <p>
+            Strony mogą poddać spór mediacji na zasadach ogólnych. Usługodawca wyraża gotowość 
+            do mediacji w przypadku sporu.
+        </p>
+        
+        <h2>§ 14. Postanowienia Końcowe</h2>
+        
+        <ol>
+            <li>Regulamin wchodzi w życie z dniem 16 sierpnia 2025 r.</li>
+            <li>Usługodawca zastrzega sobie prawo do zmiany Regulaminu z ważnych przyczyn:
+                <ul>
+                    <li>Zmiana przepisów prawa</li>
+                    <li>Zmiana zakresu lub sposobu świadczenia usług</li>
+                    <li>Zmiana cennika</li>
+                    <li>Względy bezpieczeństwa</li>
+                </ul>
+            </li>
+            <li>O zmianach Klienci zostaną poinformowani e-mailem na 14 dni przed wejściem zmian w życie.</li>
+            <li>Do umów zawartych przed zmianą stosuje się Regulamin obowiązujący w dniu zawarcia umowy.</li>
+            <li>W sprawach nieuregulowanych stosuje się przepisy:
+                <ul>
+                    <li>Kodeksu cywilnego</li>
+                    <li>Ustawy o prawach konsumenta</li>
+                    <li>Ustawy o świadczeniu usług drogą elektroniczną</li>
+                    <li>RODO</li>
+                </ul>
+            </li>
+            <li>Sądem właściwym dla sporów z przedsiębiorcami jest sąd właściwy dla siedziby Usługodawcy.</li>
+            <li>Spory z konsumentami rozstrzygane są przez sąd właściwy według przepisów ogólnych.</li>
+            <li>Regulamin sporządzono w języku polskim, który jest językiem właściwym dla jego interpretacji.</li>
+        </ol>
+        
+        <h2>§ 15. Dane Kontaktowe</h2>
+        
+        <div class="info-box">
+            <strong>Twój Biznes Na Mapie</strong><br>
+            NIP: 6463017276<br>
+            REGON: 540369419<br>
+            E-mail: kontakt.twojbiznesnamapie@gmail.com<br>
+            Telefon: +48 453 343 460<br>
+            Godziny obsługi: Pon-Pt 10:00-16:00, Sob 10:00-14:00
+        </div>
+        
+        <h2>Załączniki</h2>
+        
+        <ol>
+            <li><a href="/polityka-prywatnosci.html" style="color: var(--accent);">Polityka Prywatności</a></li>
+            <li><a href="/formularz-odstapienia.pdf" style="color: var(--accent);">Wzór formularza odstąpienia od umowy (PDF)</a></li>
+            <li><a href="/cennik.pdf" style="color: var(--accent);">Aktualny cennik usług (PDF)</a></li>
+        </ol>
+        
+        <div class="update-date">
+            Regulamin obowiązuje od: 16 sierpnia 2025<br>
+            Ostatnia aktualizacja: 16 sierpnia 2025<br>
+            Wersja dokumentu: 1.0
+        </div>
+    </div>
+</body>
+</html>

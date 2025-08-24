@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalendarz Rezerwacji Konsultacji - Twój Biznes Na Mapie</title>
+    <meta name="description" content="Zarezerwuj darmową konsultację telefoniczną. Wybierz dogodny termin i porozmawiajmy o rozwoju Twojej firmy w Google Maps.">
+    
+    <style>
+        :root {
+            --accent: #FF7A00;
+            --accentHover: #E86A00;
+            --success: #22c55e;
+            --error: #ef4444;
+            --bgSoft: #FFF8F2;
+            --textDark: #1E1E1E;
+            --textGray: #666666;
+            --white: #FFFFFF;
+            --shadow: 0 2px 10px rgba(0,0,0,0.1);
+            --shadowLarge: 0 4px 20px rgba(0,0,0,0.15);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #FFF8F2 0%, #FFFFFF 100%);
+            color: var(--textDark);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .calendar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: var(--shadowLarge);
+            overflow: hidden;
+            animation: slideUp 0.6s ease-out;
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .calendar-header {
+            background: linear-gradient(135deg, var(--accent), var(--accentHover));
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .calendar-header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        .calendar-header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+        
+        .calendar-body {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 2rem;
+            padding: 2rem;
+        }
+        
+        @media (max-width: 968px) {
+            .calendar-body {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .calendar-section {
+            background: var(--bgSoft);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+        
+        .month-navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .month-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--textDark);
+        }
+        
+        .nav-btn {
+            background: var(--white);
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .nav-btn:hover {
+            background: var(--accent);
+            color: var(--white);
+            transform: scale(1.1);
+        }
+        
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .weekdays {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .weekday {
+            text-align: center;
+            font-weight: 600;
+            color: var(--textGray);
+            font-size: 0.9rem;
+            padding: 0.5rem;
+        }
+        
+        .days-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.5rem;
+        }
+        
+        .day {
+            aspect-ratio: 1;
+            background: var(--white);
+            border: 2px solid transparent;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            position: relative;
+        }
+        
+        .day:hover:not(.disabled):not(.selected) {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+        
+        .day.today {
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            border-color: var(--success);
+        }
+        
+        .day.selected {
+            background: var(--accent);
+            color: var(--white);
+            border-color: var(--accent);
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(255, 122, 0, 0.3);
+        }
+        
+        .day.disabled {
+            background: #f5f5f5;
+            color: #ccc;
+            cursor: not-allowed;
+        }
+        
+        .day.has-slots::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 4px;
+            background: var(--success);
+            border-radius: 50%;
+        }
+        
+        .time-slots {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+        
+        .time-slots h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--textDark);
+        }
+        
+        .slots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .time-slot {
+            padding: 0.75rem;
+            background: var(--bgSoft);
+            border: 2px solid transparent;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .time-slot:hover:not(.selected) {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+        
+        .time-slot.selected {
+            background: var(--accent);
+            color: var(--white);
+            border-color: var(--accent);
+        }
+        
+        .booking-form {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--textDark);
+        }
+        
+        .form-group label .required {
+            color: var(--error);
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(255, 122, 0, 0.1);
+        }
+        
+        .error-message {
+            color: var(--error);
+            font-size: 0.85rem;
+            margin-top: 0.25rem;
+            display: none;
+        }
+        
+        .error-message.show {
+            display: block;
+        }
+        
+        .btn {
+            width: 100%;
+            padding: 14px 32px;
+            background: var(--accent);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover:not(:disabled) {
+            background: var(--accentHover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+        
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        
+        .booking-summary {
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .summary-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.75rem;
+            color: var(--textDark);
+        }
+        
+        .summary-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 0.75rem;
+            color: var(--success);
+        }
+        
+        .success-message {
+            display: none;
+            background: linear-gradient(135deg, #dcfce7, #bbf7d0);
+            border: 2px solid var(--success);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            animation: slideUp 0.6s ease-out;
+        }
+        
+        .success-message.show {
+            display: block;
+        }
+        
+        .success-icon {
+            font-size: 3rem;
+            color: var(--success);
+            margin-bottom: 1rem;
+        }
+        
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .info-box {
+            background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+            border-left: 4px solid #3b82f6;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .info-box p {
+            color: #1e40af;
+            font-size: 0.95rem;
+            margin: 0;
+        }
+        
+        @media (max-width: 640px) {
+            .calendar-header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .days-grid {
+                gap: 0.25rem;
+            }
+            
+            .day {
+                font-size: 0.9rem;
+            }
+            
+            .slots-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="calendar-container">
+        <div class="calendar-header">
+            <h1>📅 Zarezerwuj Darmową Konsultację</h1>
+            <p>Wybierz dogodny termin rozmowy telefonicznej (15 minut)</p>
+        </div>
+        
+        <div class="calendar-body">
+            <div class="calendar-section">
+                <div class="month-navigation">
+                    <button class="nav-btn" id="prevMonth" aria-label="Poprzedni miesiąc">‹</button>
+                    <h2 class="month-title" id="currentMonth">Styczeń 2025</h2>
+                    <button class="nav-btn" id="nextMonth" aria-label="Następny miesiąc">›</button>
+                </div>
+                
+                <div class="weekdays">
+                    <div class="weekday">Pon</div>
+                    <div class="weekday">Wt</div>
+                    <div class="weekday">Śr</div>
+                    <div class="weekday">Czw</div>
+                    <div class="weekday">Pt</div>
+                    <div class="weekday">Sob</div>
+                    <div class="weekday">Nie</div>
+                </div>
+                
+                <div class="days-grid" id="daysGrid"></div>
+            </div>
+            
+            <div>
+                <div class="time-slots" id="timeSlots" style="display: none;">
+                    <h3>🕐 Dostępne godziny</h3>
+                    <div class="slots-grid" id="slotsGrid"></div>
+                </div>
+                
+                <div class="booking-form" id="bookingForm" style="display: none;">
+                    <div class="booking-summary">
+                        <div class="summary-item">
+                            <svg class="summary-icon" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zM4 8h12v8H4V8z"/>
+                            </svg>
+                            <span><strong>Data:</strong> <span id="selectedDate">-</span></span>
+                        </div>
+                        <div class="summary-item">
+                            <svg class="summary-icon" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"/>
+                            </svg>
+                            <span><strong>Godzina:</strong> <span id="selectedTime">-</span></span>
+                        </div>
+                    </div>
+                    
+                    <form id="reservationForm" 
+                          data-netlify="true" 
+                          name="booking" 
+                          method="POST" 
+                          netlify-honeypot="bot-field">
+                        <input type="hidden" name="form-name" value="booking">
+                        <input type="hidden" name="reservation-date" id="hiddenDate">
+                        <input type="hidden" name="reservation-time" id="hiddenTime">
+                        <input type="hidden" name="timezone" id="hiddenTimezone">
+                        <input type="hidden" name="page-url" id="hiddenPageUrl">
+                        <div style="position:absolute;left:-9999px" aria-hidden="true">
+                            <label>Nie wypełniaj: <input name="bot-field"></label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name">Imię i nazwisko <span class="required">*</span></label>
+                            <input type="text" id="name" name="name" required maxlength="100">
+                            <span class="error-message">To pole jest wymagane</span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" required maxlength="100">
+                            <span class="error-message">Podaj prawidłowy adres email</span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Telefon <span class="required">*</span></label>
+                            <input type="tel" id="phone" name="phone" required pattern="[0-9+\s\-\(\)]+" maxlength="20">
+                            <span class="error-message">Podaj prawidłowy numer telefonu</span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="company">Nazwa firmy</label>
+                            <input type="text" id="company" name="company" maxlength="100">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="package">Interesujący pakiet</label>
+                            <select id="package" name="package">
+                                <option value="">Wybierz pakiet...</option>
+                                <option value="podstawowy">Podstawowa konfiguracja (149 zł)</option>
+                                <option value="seo">Profil + optymalizacja SEO (229 zł)</option>
+                                <option value="premium">Pełne SEO + start promocji (299 zł)</option>
+                                <option value="nieWiem">Jeszcze nie wiem</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Czego dotyczy rozmowa?</label>
+                            <textarea id="message" name="message" rows="3" maxlength="500" placeholder="Krótko opisz, o czym chciałbyś porozmawiać..."></textarea>
+                        </div>
+                        
+                        <div class="form-group" style="font-size: 0.9rem;">
+                            <label style="display: flex; align-items: flex-start; cursor: pointer;">
+                                <input type="checkbox" id="consent" name="consent" required style="margin-right: 8px; margin-top: 4px;">
+                                <span>Wyrażam zgodę na przetwarzanie moich danych osobowych w celu umówienia konsultacji. <span class="required">*</span></span>
+                            </label>
+                            <span class="error-message">Zgoda jest wymagana</span>
+                        </div>
+                        
+                        <button type="submit" class="btn" id="submitBtn">
+                            <span id="btnText">Zarezerwuj konsultację</span>
+                            <span class="loading" id="btnLoading" style="display: none;"></span>
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="success-message" id="successMessage">
+                    <div class="success-icon">✅</div>
+                    <h3 style="color: var(--success); margin-bottom: 1rem;">Dziękujemy za rezerwację!</h3>
+                    <p style="color: var(--textDark);">Potwierdzenie zostało wysłane na podany adres email.</p>
+                    <p style="color: var(--textGray); margin-top: 0.5rem;">Zadzwonimy punktualnie o wybranej godzinie.</p>
+                </div>
+                
+                <div class="info-box">
+                    <p><strong>💡 Jak to działa?</strong><br>
+                    1. Wybierz dzień z kalendarza<br>
+                    2. Wybierz dogodną godzinę<br>
+                    3. Wypełnij formularz<br>
+                    4. Otrzymasz potwierdzenie na email</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Konfiguracja
+        const CONFIG = {
+            workingHours: {
+                1: ['10:00', '11:00', '12:00', '13:00', '14:00', '15:00'], // Poniedziałek
+                2: ['10:00', '11:00', '12:00', '13:00', '14:00', '15:00'], // Wtorek
+                3: ['10:00', '11:00', '12:00', '13:00', '14:00', '15:00'], // Środa
+                4: ['10:00', '11:00', '12:00', '13:00', '14:00', '15:00'], // Czwartek
+                5: ['10:00', '11:00', '12:00', '13:00', '14:00', '15:00'], // Piątek
+                6: ['10:00', '11:00', '12:00', '13:00'], // Sobota
+                0: [] // Niedziela - brak terminów
+            },
+            monthNames: [
+                'Styczeń', 'Luty', 'Marzec', 'Kwiecień', 'Maj', 'Czerwiec',
+                'Lipiec', 'Sierpień', 'Wrzesień', 'Październik', 'Listopad', 'Grudzień'
+            ]
+        };
+        
+        // Stan aplikacji
+        let currentDate = new Date();
+        let selectedDate = null;
+        let selectedTime = null;
+        let currentMonth = new Date().getMonth();
+        let currentYear = new Date().getFullYear();
+        
+        // Globalne udostępnienie dla formularza
+        window.selectedDate = null;
+        window.selectedTime = null;
+        
+        // Elementy DOM
+        const elements = {
+            currentMonth: document.getElementById('currentMonth'),
+            daysGrid: document.getElementById('daysGrid'),
+            prevMonth: document.getElementById('prevMonth'),
+            nextMonth: document.getElementById('nextMonth'),
+            timeSlots: document.getElementById('timeSlots'),
+            slotsGrid: document.getElementById('slotsGrid'),
+            bookingForm: document.getElementById('bookingForm'),
+            selectedDate: document.getElementById('selectedDate'),
+            selectedTime: document.getElementById('selectedTime'),
+            reservationForm: document.getElementById('reservationForm'),
+            successMessage: document.getElementById('successMessage'),
+            submitBtn: document.getElementById('submitBtn'),
+            btnText: document.getElementById('btnText'),
+            btnLoading: document.getElementById('btnLoading')
+        };
+        
+        // Funkcje pomocnicze
+        function formatDate(date) {
+            const day = date.getDate();
+            const month = CONFIG.monthNames[date.getMonth()];
+            const year = date.getFullYear();
+            const weekday = ['Niedziela', 'Poniedziałek', 'Wtorek', 'Środa', 'Czwartek', 'Piątek', 'Sobota'][date.getDay()];
+            return `${weekday}, ${day} ${month} ${year}`;
+        }
+        
+        function isToday(date) {
+            const today = new Date();
+            return date.getDate() === today.getDate() &&
+                   date.getMonth() === today.getMonth() &&
+                   date.getFullYear() === today.getFullYear();
+        }
+        
+        function isPastDate(date) {
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+            return date < today;
+        }
+        
+        function hasAvailableSlots(date) {
+            const dayOfWeek = date.getDay();
+            return CONFIG.workingHours[dayOfWeek] && CONFIG.workingHours[dayOfWeek].length > 0;
+        }
+        
+        // Renderowanie kalendarza
+        function renderCalendar() {
+            const firstDay = new Date(currentYear, currentMonth, 1);
+            const lastDay = new Date(currentYear, currentMonth + 1, 0);
+            const prevLastDay = new Date(currentYear, currentMonth, 0);
+            const firstDayIndex = firstDay.getDay() === 0 ? 6 : firstDay.getDay() - 1;
+            const lastDayIndex = lastDay.getDay() === 0 ? 6 : lastDay.getDay() - 1;
+            const nextDays = 6 - lastDayIndex;
+            
+            elements.currentMonth.textContent = `${CONFIG.monthNames[currentMonth]} ${currentYear}`;
+            
+            let days = '';
+            
+            // Dni z poprzedniego miesiąca
+            for (let x = firstDayIndex; x > 0; x--) {
+                days += `<div class="day disabled">${prevLastDay.getDate() - x + 1}</div>`;
+            }
+            
+            // Dni bieżącego miesiąca
+            for (let i = 1; i <= lastDay.getDate(); i++) {
+                const date = new Date(currentYear, currentMonth, i);
+                const isDisabled = isPastDate(date);
+                const hasSlots = hasAvailableSlots(date);
+                const todayClass = isToday(date) ? 'today' : '';
+                const disabledClass = isDisabled ? 'disabled' : '';
+                const slotsClass = hasSlots && !isDisabled ? 'has-slots' : '';
+                
+                days += `<div class="day ${todayClass} ${disabledClass} ${slotsClass}" data-date="${i}">${i}</div>`;
+            }
+            
+            // Dni z następnego miesiąca
+            for (let j = 1; j <= nextDays; j++) {
+                days += `<div class="day disabled">${j}</div>`;
+            }
+            
+            elements.daysGrid.innerHTML = days;
+            
+            // Dodanie event listenerów do dni
+            document.querySelectorAll('.day:not(.disabled)').forEach(day => {
+                day.addEventListener('click', selectDate);
+            });
+        }
+        
+        // Wybór daty
+        function selectDate(e) {
+            // Usuń poprzednie zaznaczenie
+            document.querySelectorAll('.day.selected').forEach(day => {
+                day.classList.remove('selected');
+            });
+            
+            // Zaznacz nowy dzień
+            e.target.classList.add('selected');
+            
+            const dayNumber = parseInt(e.target.dataset.date);
+            selectedDate = new Date(currentYear, currentMonth, dayNumber);
+            window.selectedDate = selectedDate; // Globalne udostępnienie
+            
+            // Pokaż dostępne godziny
+            showTimeSlots();
+        }
+        
+        // Pokazanie dostępnych godzin
+        function showTimeSlots() {
+            const dayOfWeek = selectedDate.getDay();
+            const availableSlots = CONFIG.workingHours[dayOfWeek] || [];
+            
+            if (availableSlots.length === 0) {
+                elements.slotsGrid.innerHTML = '<p style="color: var(--textGray);">Brak dostępnych terminów w tym dniu.</p>';
+            } else {
+                let slotsHTML = '';
+                const now = new Date();
+                
+                availableSlots.forEach(slot => {
+                    // Jeśli to dzisiaj, sprawdź czy godzina nie minęła
+                    if (isToday(selectedDate)) {
+                        const [hours, minutes] = slot.split(':');
+                        const slotTime = new Date(selectedDate);
+                        slotTime.setHours(parseInt(hours), parseInt(minutes));
+                        
+                        if (slotTime > now) {
+                            slotsHTML += `<div class="time-slot" data-time="${slot}">${slot}</div>`;
+                        }
+                    } else {
+                        slotsHTML += `<div class="time-slot" data-time="${slot}">${slot}</div>`;
+                    }
+                });
+                
+                if (slotsHTML === '') {
+                    elements.slotsGrid.innerHTML = '<p style="color: var(--textGray);">Brak dostępnych terminów na dziś.</p>';
+                } else {
+                    elements.slotsGrid.innerHTML = slotsHTML;
+                    
+                    // Dodanie event listenerów do slotów
+                    document.querySelectorAll('.time-slot').forEach(slot => {
+                        slot.addEventListener('click', selectTime);
+                    });
+                }
+            }
+            
+            elements.timeSlots.style.display = 'block';
+            elements.bookingForm.style.display = 'none';
+        }
+        
+        // Wybór godziny
+        function selectTime(e) {
+            // Usuń poprzednie zaznaczenie
+            document.querySelectorAll('.time-slot.selected').forEach(slot => {
+                slot.classList.remove('selected');
+            });
+            
+            // Zaznacz nową godzinę
+            e.target.classList.add('selected');
+            selectedTime = e.target.dataset.time;
+            window.selectedTime = selectedTime; // Globalne udostępnienie
+            
+            // Aktualizuj podsumowanie
+            elements.selectedDate.textContent = formatDate(selectedDate);
+            elements.selectedTime.textContent = selectedTime;
+            
+            // Pokaż formularz
+            elements.bookingForm.style.display = 'block';
+            elements.bookingForm.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+        
+        // Nawigacja między miesiącami
+        elements.prevMonth.addEventListener('click', () => {
+            currentMonth--;
+            if (currentMonth < 0) {
+                currentMonth = 11;
+                currentYear--;
+            }
+            
+            // Nie pozwól na nawigację przed bieżącym miesiącem
+            const today = new Date();
+            if (currentYear < today.getFullYear() || 
+                (currentYear === today.getFullYear() && currentMonth < today.getMonth())) {
+                currentMonth = today.getMonth();
+                currentYear = today.getFullYear();
+                return;
+            }
+            
+            renderCalendar();
+        });
+        
+        elements.nextMonth.addEventListener('click', () => {
+            currentMonth++;
+            if (currentMonth > 11) {
+                currentMonth = 0;
+                currentYear++;
+            }
+            renderCalendar();
+        });
+        
+        // Walidacja formularza
+        function validateForm() {
+            let isValid = true;
+            const fields = ['name', 'email', 'phone', 'consent'];
+            
+            fields.forEach(fieldName => {
+                const field = document.getElementById(fieldName);
+                const errorMsg = field.parentElement.querySelector('.error-message');
+                
+                if (fieldName === 'consent') {
+                    if (!field.checked) {
+                        errorMsg.classList.add('show');
+                        isValid = false;
+                    } else {
+                        errorMsg.classList.remove('show');
+                    }
+                } else if (!field.value.trim()) {
+                    errorMsg.classList.add('show');
+                    isValid = false;
+                } else if (fieldName === 'email' && !validateEmail(field.value)) {
+                    errorMsg.classList.add('show');
+                    isValid = false;
+                } else if (fieldName === 'phone' && !validatePhone(field.value)) {
+                    errorMsg.classList.add('show');
+                    isValid = false;
+                } else {
+                    errorMsg.classList.remove('show');
+                }
+            });
+            
+            return isValid;
+        }
+        
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+        
+        function validatePhone(phone) {
+            const re = /^[\d\s\-\+\(\)]{7,20}$/;
+            return re.test(phone);
+        }
+        
+        // Inicjalizacja
+        renderCalendar();
+        
+        // Sprawdzenie czy nie ma przekazanych parametrów z URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const preselectedPackage = urlParams.get('package');
+        if (preselectedPackage) {
+            document.getElementById('package').value = preselectedPackage;
+        }
+    </script>
+
+<script>
+// Netlify Forms integration - POPRAWIONA WERSJA BEZ ACTION
+(function(){
+  var form = document.getElementById('reservationForm');
+  if(!form) return;
+  
+  // Ustaw stałe wartości
+  var tz = document.getElementById('hiddenTimezone'); 
+  if(tz) tz.value = (Intl.DateTimeFormat().resolvedOptions().timeZone || 'Europe/Warsaw');
+  var url = document.getElementById('hiddenPageUrl'); 
+  if(url) url.value = location.href;
+
+  function fmtDate(d){
+    if(!(d instanceof Date)) return '';
+    var y=d.getFullYear(), m=String(d.getMonth()+1).padStart(2,'0'), day=String(d.getDate()).padStart(2,'0');
+    return y + '-' + m + '-' + day;
+  }
+
+  // NIE BLOKUJ wysłania formularza
+  form.addEventListener('submit', function(e){
+    // Ustaw wartości dat przed wysłaniem
+    var sd = window.selectedDate || null;
+    var st = window.selectedTime || null;
+
+    if(sd) { 
+      var hd=document.getElementById('hiddenDate'); 
+      if(hd) hd.value = fmtDate(sd); 
+    }
+    if(st) { 
+      var ht=document.getElementById('hiddenTime'); 
+      if(ht) ht.value = st; 
+    }
+    
+    // Formularz wyśle się normalnie do Netlify i pokaże domyślną stronę sukcesu
+  });
+})();
+</script>
+
+</body>
+</html>
